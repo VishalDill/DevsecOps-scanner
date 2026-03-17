@@ -150,15 +150,6 @@ print(f'Header grade {grade} -- OK')
 "
 ```
 
----
-
-## Notes
-
-- NVD rate-limits unauthenticated requests to 5 per 30 seconds. If you're running this in a loop, add a sleep or get a free API key from them.
-- The CVSSv2 fallback is there because older CVEs (pre-2015 or so) often don't have v3 scores in NVD yet.
-- `badssl.com` is a great resource for testing SSL error paths — they maintain intentionally broken certs for exactly this kind of testing.
-
----
 
 ## License
 
