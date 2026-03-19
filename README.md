@@ -34,7 +34,7 @@ It grades the result A–F based on how many are present.
 pip install requests
 ```
 
-That's the only external dependency.
+
 
 ---
 
@@ -60,7 +60,6 @@ If you don't pass `--output`, the script auto-names the report with a timestamp 
 
 ## Sample targets to try
 
-These are good for testing different scenarios:
 
 | Target | What to expect |
 |---|---|
@@ -129,28 +128,3 @@ Tests mock out all HTTP calls so you don't need internet access. There are a few
   }
 }
 ```
-
----
-
-## Plugging into a CI pipeline
-
-The JSON output is easy to gate on. For example, to block a deployment if the header grade drops below B:
-
-```bash
-python devsecops_scanner.py --url $TARGET_URL --output scan.json
-
-python -c "
-import json, sys
-data  = json.load(open('scan.json'))
-grade = data['header_scan']['grade']
-if grade in ('D', 'F'):
-    print(f'Header grade {grade} -- blocking deploy')
-    sys.exit(1)
-print(f'Header grade {grade} -- OK')
-"
-```
-
-
-## License
-
-MIT
