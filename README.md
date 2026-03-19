@@ -1,4 +1,4 @@
-# devsecops_scanner
+# DevSecOps Scanner
 
 A Python script I put together to automate two things:
 
